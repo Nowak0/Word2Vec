@@ -3,10 +3,16 @@ from model import Model
 
 
 def main():
-    train_data, test_data = get_data()
-    word_as_index, index_as_word = assign_word_to_index(train_data)
-    model = Model(train_data, test_data, word_as_index)
+    data = get_data()
+    word_as_index, index_as_word, index_frequency = assign_word_to_index(data)
+
+    model = Model(data, word_as_index, index_frequency)
     model.train()
+    # print(model.evaluation_most_similar("cat", index_as_word))
+    # print(model.evaluation_most_similar("dog", index_as_word))
+    print("sister", model.evaluation_most_similar("sister", index_as_word))
+    print("home", model.evaluation_most_similar("home", index_as_word))
+    print("man", model.evaluation_most_similar("man", index_as_word))
 
 
 if __name__ == "__main__":

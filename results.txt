@@ -1,0 +1,49 @@
+frankenstein.txt (test word -> (similar word, similarity score))
+    - Generations = 10, Embedding size = 50, w2
+        - "sister"
+            - "brother", 0.97
+            - "cousin", 0.96
+            - "home", 0.95
+            - "spirits", 0.95
+            - "hopes", 0.94
+        - "man"
+            - "woman", 0.88
+            - "creature", 0.87
+            - "old", 0.86
+            - "gentleman", 0.86
+            - "however", 0.86
+        - "home"
+            - "passions", 0.95
+            - "sister", 0.95
+            - "closed", 0.95
+            - "attention", 0.95
+            - "excellent", 0.95
+    - Generations = 50, Embedding size = 50, w2
+        - "sister"
+            - "brother", 0.73
+            - "beloved", 0.70
+            - "arrival", 0.70
+            - "elizabeth", 0.68
+            - "niece", 0.68
+        - "man"
+            - "woman", 0.79
+            - "gentleman", 0.73
+            - "old", 0.72
+            - "lacey", 0.70
+            - "decidedly", 0.69
+        - "home"
+            - "carelessly", 0.63
+            - "beloved", 0.62
+            - "looked", 0.61
+            - "lot", 0.60
+            - "childless", 0.60
+sample.txt
+    - "cat"
+        -
+    - "dog"
+        -
+
+Iteration: 10, loss: 1632887.020232445, w 4
+sister [('wife', np.float64(0.9412920231050647)), ('brother', np.float64(0.9382904790391554)), ('constant', np.float64(0.9238436427240048)), ('darling', np.float64(0.922682590050658)), ('friend', np.float64(0.9217118475785088))]
+home [('return', np.float64(0.9286541869322644)), ('necessary', np.float64(0.920071132126662)), ('cast', np.float64(0.9170569391057534)), ('afterwards', np.float64(0.9140416161319793)), ('clerval', np.float64(0.912390360458406))]
+man [('old', np.float64(0.8421635745786947)), ('felix', np.float64(0.8411044353556572)), ('woman', np.float64(0.8355797004202614)), ('young', np.float64(0.8344139071544038)), ('pursuit', np.float64(0.8196915757081964))]
