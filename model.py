@@ -1,6 +1,4 @@
 import numpy as np
-from nltk.lm import vocabulary
-
 from utils import sigmoid, unigram_distribution
 
 
