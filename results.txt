@@ -1,49 +1,117 @@
 frankenstein.txt (test word -> (similar word, similarity score))
-    - Generations = 10, Embedding size = 50, w2
-        - "sister"
-            - "brother", 0.97
-            - "cousin", 0.96
-            - "home", 0.95
-            - "spirits", 0.95
-            - "hopes", 0.94
-        - "man"
-            - "woman", 0.88
-            - "creature", 0.87
-            - "old", 0.86
-            - "gentleman", 0.86
-            - "however", 0.86
-        - "home"
-            - "passions", 0.95
-            - "sister", 0.95
-            - "closed", 0.95
-            - "attention", 0.95
-            - "excellent", 0.95
-    - Generations = 50, Embedding size = 50, w2
-        - "sister"
-            - "brother", 0.73
-            - "beloved", 0.70
-            - "arrival", 0.70
-            - "elizabeth", 0.68
-            - "niece", 0.68
-        - "man"
-            - "woman", 0.79
-            - "gentleman", 0.73
-            - "old", 0.72
-            - "lacey", 0.70
-            - "decidedly", 0.69
-        - "home"
-            - "carelessly", 0.63
-            - "beloved", 0.62
-            - "looked", 0.61
-            - "lot", 0.60
-            - "childless", 0.60
-sample.txt
-    - "cat"
-        -
-    - "dog"
-        -
-
-Iteration: 10, loss: 1632887.020232445, w 4
-sister [('wife', np.float64(0.9412920231050647)), ('brother', np.float64(0.9382904790391554)), ('constant', np.float64(0.9238436427240048)), ('darling', np.float64(0.922682590050658)), ('friend', np.float64(0.9217118475785088))]
-home [('return', np.float64(0.9286541869322644)), ('necessary', np.float64(0.920071132126662)), ('cast', np.float64(0.9170569391057534)), ('afterwards', np.float64(0.9140416161319793)), ('clerval', np.float64(0.912390360458406))]
-man [('old', np.float64(0.8421635745786947)), ('felix', np.float64(0.8411044353556572)), ('woman', np.float64(0.8355797004202614)), ('young', np.float64(0.8344139071544038)), ('pursuit', np.float64(0.8196915757081964))]
+    - No subsampling
+        - Window = 3
+            - "sister"
+                - "son", 0.93
+                - "home", 0.92
+                - "tenderly", 0.92
+                - "wife", 0.92
+                - "brother", 0.91
+            - "home"
+                - "return", 0.94
+                - "henry", 0.94
+                - "family", 0.93
+                - "condemned", 0.93
+                - "sufferings", 0.93
+            - "man"
+                - "old", 0.88
+                - "young", 0.88
+                - "woman", 0.86
+                - "felix", 0.85
+                - "creature", 0.84
+        - Window = 4
+            - "sister"
+                - "wife", 0.94
+                - "brother", 0.94
+                - "constant", 0.92
+                - "darling", 0.92
+                - "friend", 0.92
+            - "home"
+                - "return", 0.93
+                - "necessary", 0.92
+                - "cast", 0.92
+                - "afterwards", 0.91
+                - "clerval", 0.91
+            - "man"
+                - "old", 0.84
+                - "felix", 0.84
+                - "woman", 0.84
+                - "young", 0.83
+                - "pursuit", 0.82
+        - Window = 5
+            - "sister"
+                - "beloved", 0.93
+                - "darling", 0.93
+                - "brothers", 0.92
+                - "wife", 0.92
+                - "smile", 0.92
+            - "home"
+                - "bitterly", 0.92
+                - "return", 0.92
+                - "condemned", 0.92
+                - "dwelling", 0.92
+                - "boy", 0.92
+            - "man"
+                - "old", 0.89
+                - "young", 0.83
+                - "felix", 0.81
+                - "blind", 0.80
+                - "woman", 0.80
+    - With subsampling
+        - Window = 3
+            - "sister"
+                - "console", 0.96
+                - "relate", 0.96
+                - "imagine", 0.95
+                - "possibly", 0.94
+                - "credit", 0.94
+            - "home"
+                - "confess", 0.95
+                - "leave", 0.95
+                - "proved", 0.95
+                - "absence", 0.94
+                - "restore", 0.94
+            - "man"
+                - "companion", 0.92
+                - "young", 0.92
+                - "woman", 0.92
+                - "period", 0.92
+                - "child", 0.91
+        - Window = 4
+            - "sister"
+                - "gratitude", 0.96
+                - "duty", 0.96
+                - "evil", 0.96
+                - "guilt", 0.95
+                - "enough", 0.95
+            - "home"
+                - "agitates", 0.96
+                - "shake", 0.96
+                - "express", 0.96
+                - "inhabit", 0.96
+                - "preserve", 0.95
+            - "man"
+                - "old", 0.90
+                - "child", 0.88
+                - "girl", 0.87
+                - "woman", 0.87
+                - "spoke", 0.86
+        - Window = 5
+            - "sister"
+                - "beloved", 0.97
+                - "lady", 0.96
+                - "loved", 0.96
+                - "constant", 0.96
+                - "brother", 0.95
+            - "home"
+                - "lady", 0.98
+                - "situation", 0.97
+                - "blessed", 0.97
+                - "benefactor", 0.97
+                - "tenderly", 0.97
+            - "man"
+                - "old", 0.86
+                - "felix", 0.86
+                - "blind", 0.85
+                - "name", 0.85
+                - "woman", 0.85

@@ -1,10 +1,6 @@
 import re
 
 
-RARE_TRESHOLD = 1
-N_COMMON_WORD = 10
-
-
 def get_data():
     with open("dataset/frankenstein.txt", "r", encoding="utf-8") as f:
         text = f.read()

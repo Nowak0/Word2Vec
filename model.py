@@ -1,15 +1,17 @@
 import numpy as np
+from nltk.lm import vocabulary
+
 from utils import sigmoid, unigram_distribution
 
 
 class Model:
-    GENERATIONS = 10
-    WINDOW = 5
+    EPOCHS = 10
+    WINDOW = 4
     EMBEDDING_SIZE = 50
     N_NEGATIVE_SAMPLES = 10
     EPSILON = 1e-10
     LEARNING_RATE = 0.01
-    SUBSAMPLING_THRESHOLD = 1e-5
+    SUBSAMPLING_NUMERATOR = 1e-3
 
     def __init__(self, data, word_as_index, index_frequency=None):
         self.skip_gram_pairs = []
@@ -27,7 +29,7 @@ class Model:
             self.index_frequency_probabilities = unigram_distribution(self.index_frequency)
         self._create_skip_gram_pairs()
 
-        for i in range(self.GENERATIONS):
+        for i in range(self.EPOCHS):
             np.random.shuffle(self.skip_gram_pairs)
             total_loss = 0
 
@@ -51,7 +53,7 @@ class Model:
         return [(index_as_word[i], similarities[i]) for i in nearest]
 
     def _create_skip_gram_pairs(self):
-        # self.data = self._subsampling(self.data)
+        self.data = self._subsampling(self.data)
 
         for sentence in self.data:
             for i in range(len(sentence)):
@@ -72,9 +74,9 @@ class Model:
             new_sentence = []
             for word in sentence:
                 freq = self.index_frequency[self.word_as_index[word]] / self.total_word_count
-                word_probability_to_discard = 1 - np.sqrt(self.SUBSAMPLING_THRESHOLD / freq)
+                discard_prob = max(0.0, 1 - np.sqrt(self.SUBSAMPLING_NUMERATOR / freq))
 
-                if np.random.rand() >= word_probability_to_discard:
+                if np.random.rand() >= discard_prob:
                     new_sentence.append(word)
 
             if new_sentence:
