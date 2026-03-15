@@ -6,7 +6,7 @@ from utils import sigmoid, unigram_distribution
 
 class Model:
     EPOCHS = 10
-    WINDOW = 4
+    WINDOW = 5
     EMBEDDING_SIZE = 50
     N_NEGATIVE_SAMPLES = 10
     EPSILON = 1e-10
