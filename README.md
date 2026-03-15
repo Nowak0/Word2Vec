@@ -8,7 +8,7 @@ The primary goal is to map words from a dataset (here: Mary Shelley's *Frankenst
 
 ## Dataset
 
-The dataset was preprocessed through tokenization, lowercasing, and removal of punctuation before building the vocabulary. It includes:
+The dataset was preprocessed through tokenization, lowercasing and removal of punctuation before building the vocabulary. It includes:
 - ~75000 total words
 - ~7200 unique words
 - ~540000 Skip-gram pairs without subsampling
@@ -39,7 +39,7 @@ The following hyperparameters were utilized to produce the analyzed results:
 - **Learning Rate**: 0.01
 - **Negative Samples**: 10
 - **Subsampling Numerator**: 0.001
-- **Windows Tested**: 3, 4, and 5
+- **Windows Tested**: 3, 4 and 5
 
 ---
 
@@ -77,7 +77,7 @@ Without subsampling, the model captures meaningful semantic associations across 
 | | man| old (0.86), felix (0.86), blind (0.85), name (0.85), woman (0.85) |
 
 **Observations**:
-While subsampling offers a substantial increase in training speed, it introduces a trade-off in result quality that is highly dependent on the window size. At smaller windows (3, 4), the results are less intuitive. This is likely because subsampling reduces the number of training pairs involving frequent words, which can decrease the amount of useful training information available to the model. The window size of 5 produced semantically meaningful similar words. A larger dataset could further improve embedding quality by providing more contextual information
+While subsampling offers a substantial increase in training speed, it introduces a trade-off in result quality that is highly dependent on the window size. At smaller windows (3, 4), the results are less intuitive. This is likely because subsampling reduces the number of training pairs involving frequent words, which can decrease the amount of useful training information available to the model. The window size of 5 produced semantically meaningful similar words. A larger dataset could further improve embedding quality by providing more contextual information.
 
 ## Summary
-The experiments highlight how context window size and subsampling affect embedding quality. Subsampling was intentionally applied to reduce training time and focus on meaningful words, and while it can reduce the number of effective training examples with smaller windows, a window size of 5 provided the most stable and semantically meaningful results in this implementation.
+The experiments highlight how context window size and subsampling affect embedding quality. Subsampling was intentionally applied to reduce training time and focus on meaningful words and while it can reduce the number of effective training examples with smaller windows, a window size of 5 provided the most stable and semantically meaningful results in this implementation.
