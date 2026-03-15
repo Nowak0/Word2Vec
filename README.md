@@ -4,7 +4,7 @@ This project is a foundational implementation of Word2Vec, specifically the **Sk
 
 ## Project Objective
 
-The primary goal is to map words from a dataset (here: Mary Shelley's *Frankenstein*, ~75000 words) into a continuous vector space where words that appear in similar contexts obtain similar vector representations. This project focuses on the optimization of word embeddings using gradient descent.
+The primary goal is to map words from a dataset (here: Mary Shelley's *Frankenstein*) into a continuous vector space where words that appear in similar contexts obtain similar vector representations. This project focuses on the optimization of word embeddings using gradient descent.
 
 ## Dataset
 
@@ -45,7 +45,7 @@ The following hyperparameters were utilized to produce the analyzed results:
 
 ## Analysis of Results
 
-The performance was evaluated using cosine similarity between embedding vectors across different window sizes to compare the stability of standard training versus the efficiency of the subsampling method.
+The performance was evaluated using cosine similarity between embedding vectors across different window sizes to compare the results of standard training versus subsampling method.
 
 ### 1. Performance without Subsampling
 | Window | Test Word | Top 5 Similar Words (Similarity Score) |
@@ -77,10 +77,7 @@ Without subsampling, the model captures meaningful semantic associations across 
 | | man| old (0.86), felix (0.86), blind (0.85), name (0.85), woman (0.85) |
 
 **Observations**:
-While subsampling offers a substantial increase in training speed, it introduces a trade-off in result quality that is highly dependent on the window size. At smaller windows (3, 4), the results are less intuitive. This is likely because subsampling reduces the number of training pairs involving frequent words, which can decrease the amount of useful training information available to the model.
+While subsampling offers a substantial increase in training speed, it introduces a trade-off in result quality that is highly dependent on the window size. At smaller windows (3, 4), the results are less intuitive. This is likely because subsampling reduces the number of training pairs involving frequent words, which can decrease the amount of useful training information available to the model.The window size of 5 produced semantically meaningful similar words. A larger dataset could further improve embedding quality by providing more contextual information
 
 ## Summary
-
-This project implements the **Skip-gram Word2Vec model with Negative Sampling** from scratch using Python and NumPy to learn word embeddings from Mary Shelley’s Frankenstein. The model learns vector representations by increasing the similarity between words that appear in the same context while decreasing similarity with randomly sampled words.
-
-The experiments demonstrate how context window size and subsampling influence embedding quality. While subsampling significantly reduces training time, its interaction with small context windows can reduce the number of effective training examples. In this implementation, a window size of 5 provided the most stable results when subsampling was applied.
+The experiments highlight how context window size and subsampling affect embedding quality. Subsampling was intentionally applied to reduce training time and focus on meaningful words, and while it can reduce the number of effective training examples with smaller windows, a window size of 5 provided the most stable and semantically meaningful results in this implementation.
